@@ -1,0 +1,31 @@
+.about_container{
+    text-align: center;
+}
+
+.about_container > h1{
+    font-size: 4rem;
+}
+.about_container > p{
+    line-height: 1.5;
+    font-size: 1.2rem;
+}
+
+.footer{
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: blue;
+    color: #fff;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 0 0 0;
+}
+
+.footer-container > h4, .footer-container > p {
+    color: #fff;
+}

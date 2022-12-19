@@ -1,0 +1,166 @@
+.c-s{
+    margin-bottom: 65px;
+}
+
+.navbar{
+    border-radius: 7px;
+}
+
+.nevigation{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    width: 87vw;
+    margin: 0 auto 65px auto;
+    align-items: center;
+}
+
+.logo{
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #333;
+    margin: auto 0;
+}
+
+.logo i{
+    height: 30px;
+    width: 40px;
+    font-size: 1.8rem;
+    color: red;
+}
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+.nav-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* navbar link */
+
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin:  auto 0;
+    width: 34%;
+}
+.nav-list li{
+    /* display: inline; */
+    padding-left: 70px;
+}
+
+
+
+.nav_link{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-list > li > a:hover{
+    color: #0ee407;
+}
+
+
+/* >>>>>>>>>>>>>>>>>>>>> */
+
+/* singup-singin button */
+
+
+.singin,.singup{
+    margin-left: 8px;
+    text-decoration: none;
+    border: 2px solid #0779e4;
+    padding: 10px 17px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition:1.3s;
+}
+
+.singin:hover, .singup:hover{
+    border-color: #0dd6b1;
+}
+
+.singin:hover{
+    color: #0dd6b1;
+}
+
+.singin:focus, .singup:focus{
+    padding: 9px 16px;
+    color: #0779e4;
+}
+
+.singup{
+    background: #0779e4;
+    color: #fff;
+    transition: 1.3s;
+}
+
+.singup:hover{
+    background: #0dd6b1;
+    color: black;
+}
+
+.singup:focus{
+    color: #fff;
+    background: cornflowerblue;
+}
+.humburger{
+    display: none;
+}
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+@media screen and (max-width: 822px) {
+   .nevigation{
+    flex-direction: column;
+   }
+   .singin,.singup{
+    padding: 5px 10px;
+   }
+   .nav-btn{
+    width: 100vw;
+   }
+   .nav-list li{
+    /* display: inline; */
+    padding-left: 40px;
+}
+}
+@media screen and (max-width: 330px){
+    .nevigation{
+        width: 100vw;
+    }
+    .nav-btn{
+        flex-direction: column;
+        width: 100vw;
+        }
+    .nav-list{
+        justify-content: space-between;
+        width: 100vw;
+        margin: 10px 0;
+        flex-direction: column;
+    }
+    .nav-list li{
+        /* display: inline; */
+        padding: 10px 0px;
+        width: 30%;
+    }   
+    .singin-singup > form{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 40vw;
+        /* align-content: space-between; */
+        /* align-self: center; */
+    }
+    .singin,.singup{
+        width: 30%;
+        margin-top: 10px;
+        align-self: center;
+    }
+   
+}

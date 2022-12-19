@@ -1,0 +1,13 @@
+.profile{
+    min-width: 80vw;
+}
+.pr-card{
+    margin:200px auto;
+}
+
+.card-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}

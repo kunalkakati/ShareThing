@@ -1,0 +1,29 @@
+.add-blog{
+    width: 40vw;
+    margin: 50px auto;
+
+}
+
+.add-blog > h1{
+    text-align: center;
+    margin: 50px 0;
+}
+
+.label{
+    font-size: 1.4rem;
+}
+
+.inp{
+    border: 1px solid black;
+}
+
+.from-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.from-button > button{
+    width: 100px;
+}

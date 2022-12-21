@@ -15,6 +15,7 @@ function Home() {
 
   return (
     <>
+      {/* Dynamically changing the home path by chaking loged in or loged out and also change path based on who loged in */}
       {window.localStorage.getItem("Token") ? <AllBlogs /> : window.localStorage.getItem("AdminToken") ? <AdminDashboard /> : <Introduction />}
     </>
   )

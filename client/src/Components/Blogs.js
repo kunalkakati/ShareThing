@@ -40,7 +40,7 @@ function Blogs() {
 
     return (
         <>
-        {window.localStorage.getItem('Token') ? 
+        {window.localStorage.getItem('Token') ?  
             <div className='row my-3'>
                 <h1 className="my3 ">My Blogs: </h1>
                 {/* Update modal */}

@@ -2,6 +2,7 @@ const express = require('express');
 const Blogs = require("../models/Blog");
 const User = require("../models/User");
 const FatchUser = require('../middleware/fatchuser');
+const upload = require("../middleware/upload");
 const { body, validationResult } = require('express-validator');
 
 const router = express.Router();
@@ -11,6 +12,7 @@ router.get("/fatch_all_blogs", FatchUser, async (req, res) => {
     // console.log("ID:   "+req.user.id);
     try {
         // fatch all notes from database
+
         const blogs = await Blogs.find({ user: req.user.id});
         res.send(blogs);
     } catch (error) {
@@ -33,7 +35,7 @@ router.get("/all_blog", async(req,res)=>{
 })
 
 //!Route-2 (insert new note to database)
-router.post("/add_blogs", FatchUser, [body('description', "Description should not be empty.").isLength({ min: 3 })], async (req, res) => {
+router.post("/add_blogs", FatchUser ,upload.single("file"), [body('description', "Description should not be empty.").isLength({ min: 3 })], async (req, res) => {
     // Handle validation error.
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -43,12 +45,14 @@ router.post("/add_blogs", FatchUser, [body('description', "Description should no
         // JS destructuring
         const { title, description, tags } = req.body;
         let user = await User.findOne({_id: req.user.id});
-        // console.log(user);
+        if (req.file === undefined) return res.send("you must select a file.");
+        const imgUrl = `http://localhost:5000/api/blog/image/${req.file.filename}`;
         // save to database[title means - title: title (if both name are same)].
         const note = new Blogs({
             user: req.user.id,
             author: user.Username,
             department: user.department,
+            imageUrl: imgUrl,
             title, description, tags
         });
         const savedBlog = await note.save();

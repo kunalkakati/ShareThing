@@ -7,7 +7,8 @@ const Blogstate = (props) => {
   const [Blogs, setBlogs] = useState([{
     "title": '',
     "description": '',
-    "tags": ''
+    "tags": '',
+    "imageUrl": ''
   }]);
 
   
@@ -40,14 +41,20 @@ const Blogstate = (props) => {
 
   //!ADD new blog
   const addBlog = async(nwBlog) => {
-    const { title, description, tags } = nwBlog;
+    const { title, description, tags,file } = nwBlog;
+    const data = new FormData();
+    data.append('title',title);
+    data.append('description',description);
+    data.append('tags',tags);
+    data.append('file',file);
     const responce = await fetch(`${host}/api/blog/add_blogs`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        // 'Content-Type': 'multipart/form-data;',
         'auth-token': window.localStorage.getItem('Token')
       },
-      body: JSON.stringify({ title, description, tags }),
+      body: data
+      // body: JSON.stringify({ title, description, tags }),file
     })
     let json = await responce.json();
     

@@ -19,6 +19,7 @@ function AllBlogs() {
                     <div className="card-header">
                         {/* <h5 className="card-subtitle mb-2 text-muted">{date.toLocaleDateString()}</h5> */}
                         <h5 className="card-title">{item.title}</h5>
+                        <img src={item.imageUrl} alt="kun" />
                         <p className="card-text"><em>Written by </em>{item.author} <p className="card-text"><em>Department of {item.department} </em></p></p>
                         
                     </div>

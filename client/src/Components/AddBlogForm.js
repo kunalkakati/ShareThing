@@ -6,24 +6,29 @@ import "./CSS/Add_blog_form.css";
 function AddBlogForm() {
     const blogState = useContext(BlogContext);
     const { addBlog } = blogState;
-    const [blog, setBlog] = useState({ title: '', description: '', tags: '' });
+    const [blog, setBlog] = useState({ title: '', description: '', tags: '', file:'' });
     const alertState = useContext(AlertContex);
     const {giveAlert} = alertState;
     // eslint-disable-next-line
 
     const onChange = (e) => {
-        setBlog({ ...blog, [e.target.name]: e.target.value });
+        if(e.target.name === 'file'){
+            setBlog({...blog, [e.target.name]: e.target.files[0]})
+        }else{
+            setBlog({ ...blog, [e.target.name]: e.target.value });
+        }
     }
 
     const SubmitFrom = (e) => {
         e.preventDefault();
+        // console.log(blog);
         addBlog(blog) && giveAlert('success', "Successfully updoaded.");
         setBlog({ title: '', description: '', tags: '' });
     }
 
     return (
         <>
-            <form onSubmit={SubmitFrom}>
+            <form onSubmit={SubmitFrom} encType="multipart/form-data">
                 <div className='add-blog'>
                     <h1>Enter your Blog</h1>
                     <div className="mb-3">
@@ -33,6 +38,11 @@ function AddBlogForm() {
                     <div className="mb-3">
                         <label htmlFor="description" className="lable form-label fs-2">Description</label>
                         <textarea className="inp form-control" id="description" name='description' value={blog.description} rows="3" onChange={onChange}></textarea>
+                    </div>
+
+                    <div className="mb-3">
+                        <label htmlFor="file" className="lable form-label fs-2">Description</label>
+                        <input type="file" className="inp form-control" id="file" name='file' onChange={onChange} />
                     </div>
 
                     <div className="mb-3">

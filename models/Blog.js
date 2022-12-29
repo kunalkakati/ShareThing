@@ -9,6 +9,10 @@ const BlogSchema = mongoose.Schema({
         type: String,
         default: "No title"
     },
+    imageUrl: {
+        type: String,
+        default: "https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"
+    },
     description: {
         type: String,
         default: "No description"

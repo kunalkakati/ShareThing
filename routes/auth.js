@@ -103,11 +103,30 @@ router.get("/users", async (req, res) => {
       const users = await User.find({});
       res.send(users);
   } catch (error) {
-      console.log("Problem occured on note routes(/users)" + error.massage);
+      console.log("Problem occured on routes(/users)" + error.massage);
       return res.sendStatus(404).send("Internel server error.");
   }
 
 });
+
+// !Route-5 (Admin user delete)
+router.delete("/delete/user/:id", async (req, res) => {
+  try {
+      console.log(req.params.id);
+      //find the blog to be deleted
+      let note = await User.findById(req.params.id);
+      if (!note) { return res.status(404).send("Not found") }
+      // varify the user[check user owns this note]
+      note = await User.findByIdAndDelete(req.params.id);
+      res.json({ result: "success" });
+
+  } catch (error) {
+      console.log("Problem occured on delete/user/id routes" + error);
+      return res.sendStatus(404).send("Internel server error.")
+  }
+
+});
+
 
 
 

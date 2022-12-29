@@ -40,7 +40,7 @@ function AddBlogForm() {
                         <input type="text" className="inp form-control" id="tags" name='tags' value={blog.tags} onChange={onChange} />
                     </div>
                     <div className="from-button">
-                        <button type="submit" disabled={blog.description.length < 3 ? true : false} className="btn btn-dark my-3">Submit</button>
+                        <button type="submit" disabled={blog.description.length < 3 ? true : false} className={`btn btn-${blog.description.length < 3 ? "dark" : "success"} my-3`}>Submit</button>
                     </div>
                 </div>
             </form>

@@ -5,6 +5,10 @@ const AdminSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    collage_id:{
+        type: String,
+        default: "college.tihu421"
+    },
     Password: {
         type: String,
         required: true

@@ -21,7 +21,7 @@ function BlogItem({ blog, OpenModal }) {
                 <div className="card-body">
                     <p className="card-text">{blog.description}</p>
                     <p className="card-text"><em>Tags: </em>{blog.tags} </p>
-                    <button className="btn btn-primary" onClick={() => { OpenModal(blog) }}>Update</button>
+                    <button className="btn btn-info" onClick={() => { OpenModal(blog) }}>Update</button>
                     <button className="btn btn-danger mx-3" onClick={() => { deleteBlog(blog._id) && giveAlert('success',"Successfully deleted.") }}>Delete</button>
                 </div>
             </div>

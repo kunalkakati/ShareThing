@@ -89,7 +89,7 @@ router.put("/update_blog/:id", FatchUser, async (req, res) => {
 
 });
 
-//!Route-4(Delete notes)
+//!Route-4(Delete blogs)
 router.delete("/delete_blog/:id", FatchUser, async (req, res) => {
     try {
         //find the blog to be deleted.v

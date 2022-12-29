@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 function Register() {
   const [userData, setUserData] = useState({ Username: '', email: '', Password: '' });
@@ -74,6 +76,7 @@ function Register() {
                 <button type="submit" disabled={PasswordState}>Register</button>
               </div>
             </form>
+            <Link to='/admin/dashboard'><ArrowBackIcon/></Link>
           </div>
         </div>
     </div>

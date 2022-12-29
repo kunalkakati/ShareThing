@@ -6,9 +6,9 @@ import ErrorPage from '../ErrorPage';
 
 
 function Dashboard() {
-    const [users, setUsers] = useState([{ Username: '', email: '', department: '' }]);
+    const [users, setUsers] = useState([{ '_id':'', sername: '', email: '', department: '' }]);
     const getAllUsers = async () => {
-        const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
+        const response = await fetch(`http://localhost:5000/api/auth/users`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ function Dashboard() {
                 </div>
                 <hr />
                 <div className='db-all-users'>
-                    <h2>Users</h2>
+                    <h2>Current users</h2>
                     <table className="table">
                         <thead>
                             <tr>
@@ -42,6 +42,7 @@ function Dashboard() {
                                 <th scope="col">Username</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Department</th>
+                                <th scope="col">Handle</th>
                             </tr>
                         </thead>
                         <tbody>

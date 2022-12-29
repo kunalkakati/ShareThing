@@ -23,6 +23,7 @@ router.post("/create", [body('Username').isLength({ min: 3 }), body('Password').
       console.log(req.body.email);
       let user = await Admin.findOne({email: req.body.email});
       if(user){ return res.json({success,Error: "User email already exist"})};
+      
       // hashing and salting
   
       const salt = bcrypt.genSaltSync(10);
@@ -57,15 +58,18 @@ router.post("/login", [body('Password').exists(),body('email').isEmail()], async
     }
     let success = false;
     try {
-      const {email,Password} = req.body;
+      const {email,Password, collage_id} = req.body;
       // find user entered email, if it doesn't exit return bad request.
-      if(await Admin.findOne({email}) === null){return res.json({success, error: "place enter valid email or password"})};
+      if(await Admin.findOne({email}) === null){return res.json({success, error: "Pleace enter valid email"})};
       const user = await Admin.findOne({email});
+      // college id validation
+      let collegeId = await Admin.findOne({collage_id});
+      if(collegeId === null){return res.json({success,error: "Please enter valid college id."})};
       
       const ComparePasword = await bcrypt.compare(Password,user.Password);
       console.log(ComparePasword);
       
-      if(!ComparePasword){return res.json({success, error: "place enter valid email or password"})};
+      if(!ComparePasword){return res.json({success, error: "Pleace enter valid password"})};
   
       const data={
         user:{
@@ -81,5 +85,7 @@ router.post("/login", [body('Password').exists(),body('email').isEmail()], async
     }
   
   });
+
+
 
   module.exports = router;

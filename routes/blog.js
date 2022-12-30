@@ -34,6 +34,17 @@ router.get("/all_blog", async(req,res)=>{
     }
 })
 
+router.get("/single", async(req,res)=>{
+    try {
+        // fatch all blogs from database
+        const blog = await Blogs.findById(req.body.id);
+        res.send(blog);
+    } catch (error) {
+        console.log("Problem occured on note routes(/fatch_all_blogs)" + error.massage);
+        return res.sendStatus(404).send("Internel server error.");
+    }
+})
+
 //!Route-2 (insert new note to database)
 router.post("/add_blogs", FatchUser ,upload.single("file"), [body('description', "Description should not be empty.").isLength({ min: 3 })], async (req, res) => {
     // Handle validation error.

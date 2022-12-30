@@ -41,7 +41,7 @@ function AddBlogForm() {
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="file" className="lable form-label fs-2">Description</label>
+                        <label htmlFor="file" className="lable form-label fs-2">Image</label>
                         <input type="file" className="inp form-control" id="file" name='file' onChange={onChange} />
                     </div>
 

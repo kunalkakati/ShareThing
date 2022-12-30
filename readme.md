@@ -1,8 +1,7 @@
 
 # ShareThing
 
-ShareThing is a blogging site for colleges created using MERN technologies.
-The main aim of this application is to provide a hasslefree accessing of the posted blogs, entries, topics etc. It also used for posting the blogs, editing the blogs, deleting the posted blogs etc. It is also used for viewing and posting the others one’s blogs/posts.
+ShareThing is a site designed especially for colleges. It provides easy access to blogs, entities, topics, and other content posted by students within the college. As it is only available to college students in one particular college, students can discuss problems they have faced and find solutions. Additionally, the college can notify students about upcoming events, exams, and other activities through this system overriding the traditional notification system.
 
 ## Environment Variables
 

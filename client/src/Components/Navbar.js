@@ -1,17 +1,16 @@
 import React from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./CSS/NavBar.css";
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Button } from '@mui/material';
+
 
 function Navbar() {
 
     let location = useLocation();
-    // useEffect(() => {
-    // }, [location]);
     const navigate = useNavigate();
     const UserLogout = () => {
-        // window.localStorage.removeItem('Token') || window.localStorage.removeItem('AdminToken');
-        // navigate("/", { replace: true });
-
         if(window.localStorage.getItem("Token")){
             window.localStorage.removeItem("Token");
             navigate("/login", {replace: true});
@@ -53,9 +52,8 @@ function Navbar() {
                     </ul>
                 <div className="singin-singup">
                     {!window.localStorage.getItem('Token') && !window.localStorage.getItem('AdminToken') ? <form className="d-flex" role="search">
-                        <Link className="singin" to="/login" role="button">Login</Link>
-                        {/* <Link className="singup" to="/admin" role="button">Admin</Link> */}
-                    </form> : <button className="singin" onClick={UserLogout} >Logout</button>
+                        <Link to="/login" role="button"><Button variant="contained" startIcon={<LoginIcon />}>Login</Button></Link>
+                    </form> : <Button variant="outlined" color='warning' startIcon={<LogoutIcon />} onClick={UserLogout} >Logout</Button>
                     }
                 </div>
                 </div>

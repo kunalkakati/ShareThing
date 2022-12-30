@@ -2,6 +2,9 @@ import React, { useContext, useState } from 'react'
 import BlogContext from '../Context/blogs/BlogContext';
 import AlertContex from '../Context/blogs/AlertContext';
 import "./CSS/Add_blog_form.css";
+import { Button } from '@mui/material';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
+
 
 function AddBlogForm() {
     const blogState = useContext(BlogContext);
@@ -33,11 +36,11 @@ function AddBlogForm() {
                     <h1>Enter your Blog</h1>
                     <div className="mb-3">
                         <label htmlFor="title" className="lable form-label fs-2">Title</label>
-                        <input type="text" className="inp form-control" id="title" name='title' value={blog.title} onChange={onChange} />
+                        <input type="text" className="inp form-control" id="title" name='title' value={blog.title} placeholder='example, Jenni kim' onChange={onChange} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="lable form-label fs-2">Description</label>
-                        <textarea className="inp form-control" id="description" name='description' value={blog.description} rows="3" onChange={onChange}></textarea>
+                        <textarea className="inp form-control" id="description" name='description' value={blog.description} rows="3" onChange={onChange} placeholder='Description much be greater then 50 charecters'></textarea>
                     </div>
 
                     <div className="mb-3">
@@ -47,10 +50,10 @@ function AddBlogForm() {
 
                     <div className="mb-3">
                         <label htmlFor="tags" className="lable form-label fs-2">Tags</label>
-                        <input type="text" className="inp form-control" id="tags" name='tags' value={blog.tags} onChange={onChange} />
+                        <input type="text" className="inp form-control" id="tags" name='tags' value={blog.tags} placeholder='example fun, knowlage..' onChange={onChange} />
                     </div>
                     <div className="from-button">
-                        <button type="submit" disabled={blog.description.length < 3 ? true : false} className={`btn btn-${blog.description.length < 3 ? "dark" : "success"} my-3`}>Submit</button>
+                        <Button type="submit" startIcon={<FileUploadIcon />} variant="contained" color='success' disabled={blog.description.length < 50 ? true : false}>Submit</Button>
                     </div>
                 </div>
             </form>

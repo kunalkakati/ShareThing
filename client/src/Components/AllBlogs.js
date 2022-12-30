@@ -12,8 +12,6 @@ function AllBlogs() {
         // eslint-disable-next-line
     }, [])
 
-
-
     return (
         <div >
             {Blogs.slice(0).reverse().map((item, index) => {

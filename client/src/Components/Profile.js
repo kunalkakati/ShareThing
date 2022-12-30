@@ -2,6 +2,21 @@ import React, { useContext, useEffect } from 'react'
 import UserContext from '../Context/user/UserContext';
 import "./CSS/Profile.css";
 import { Link} from "react-router-dom";
+import { Button, createTheme, ThemeProvider } from '@mui/material';
+import UpgradeIcon from '@mui/icons-material/Upgrade';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
+
+const theme = createTheme({
+    palette: {
+        primary: {
+          main: '#35D0BA',
+        //   main: '#0dcaf0',
+        },
+        secondary: {
+          main: '#EB455F',
+        },
+      },
+})
 
 
 function Profile() {
@@ -26,8 +41,10 @@ function Profile() {
                             <h1 class="card-title">{Username}</h1>
                             <p class="card-title">Department of {department}</p>
                             <p class="card-text">{email}</p>
-                            <Link to='/update_password' className='btn btn-info' >Update password</Link>
-                            <Link to='/delete20%account' className='btn btn-warning mx-2' >Delete account</Link>
+                            <ThemeProvider theme={theme}>
+                            <Link to='/update_password' ><Button color='primary' variant="contained" startIcon={<UpgradeIcon />}>Update password</Button></Link>
+                            <Link to='/delete20%account' className='mx-2' ><Button  color='error' variant="contained" startIcon={<DeleteSweepIcon />}>Delete account</Button></Link>
+                            </ThemeProvider>
                         </div>
                     </div>
                 </div>

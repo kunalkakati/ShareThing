@@ -1,6 +1,9 @@
+import { Button } from '@mui/material';
 import React, { useContext, useEffect } from 'react';
 import BlogContext from '../../Context/blogs/BlogContext';
 import LongText from '../LongText';
+import ClearIcon from '@mui/icons-material/Clear';
+
 
 
 function AllBlogs() {
@@ -26,7 +29,7 @@ function AllBlogs() {
                     <p> <LongText content={item.description} limit={200} /></p>
                     <p>{new Date(item.date).toDateString()}</p>
                     <p class="read-more">
-                        <button className="btn btn-danger" onClick={() => { AdminDelete(item._id) }}>Delete</button>
+                        <Button variant="contained" color='error' startIcon={<ClearIcon />} className="" onClick={() => { AdminDelete(item._id) }}>Delete</Button>
                     </p>
                 </div>
             </div>

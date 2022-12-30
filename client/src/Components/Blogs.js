@@ -3,6 +3,8 @@ import BlogItem from './BlogItem';
 import BlogContext from '../Context/blogs/BlogContext';
 import ErrorPage from './ErrorPage';
 import AlertContex from '../Context/blogs/AlertContext';
+import { Button } from '@mui/material';
+
 
 
 function Blogs() {
@@ -69,8 +71,8 @@ function Blogs() {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" ref={refClose} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" disabled={blog.e_description.length < 3 ? true : false}  onClick={EditNote} className="btn btn-primary">Save changes</button>
+                                <Button type="button" variant="outlined" color='error' ref={refClose} className="mx-3" data-bs-dismiss="modal">Close</Button>
+                                <Button type="button" variant="contained" color='success' disabled={blog.e_description.length < 3 ? true : false}  onClick={EditNote} className="">Save changes</Button>
                             </div>
                         </div>
                     </div>

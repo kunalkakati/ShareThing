@@ -1,13 +1,32 @@
 .profile{
-    min-width: 80vw;
-}
-.pr-card{
-    margin:200px auto;
+    width: 80%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: auto;
 }
 
-.card-col{
+.profile-content{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 20px;
+    width: fit-content;
+    align-items: flex-end;
+    height: fit-content;
+}
+
+.user-info{
+    margin-left: 20px;
+}
+
+.user-info > h3{
+    margin: 10px 0;
+}
+.profile-content > img{
+    width: 180px;
+    padding: 7px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.profile > Button{
+    height: fit-content;
+    margin: 10px;
 }

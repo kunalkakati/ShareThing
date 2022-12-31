@@ -36,7 +36,7 @@ function BlogItem({ blog, OpenModal }) {
                 </div>
                 <div class="description">
                     <h1>{blog.title} </h1>
-                    <h2>{blog.author}, <em> department of {blog.department}</em></h2>
+                    {/* <h2>{blog.author} from {blog.department} Department</h2> */}
                     <p>Tags: {blog.tags}</p>
                     <p> <LongText content={blog.description} limit={200} /></p>
                     <p>{date.toDateString()}</p>

@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react'
 // import { useNavigate } from 'react-router-dom';
 import AllBlogs from './AllBlogs';
 import Introduction from './Introduction';
 import AdminDashboard from './Admin/Dashboard';
+import UserContext from '../Context/user/UserContext';
 
 
 
 
 function Home() {
-  // const navigate = useNavigate();
-  // if(!window.localStorage.getItem("Token")){
-  //   navigate("/share-thing/intro", { replace: true });
-  // }
+
+  const UserState = useContext(UserContext);
+    const { getCurrentUser } = UserState;
+
+    useEffect(() => {
+      if(window.localStorage.getItem("Token")){
+        getCurrentUser();
+      }
+        // eslint-disable-next-line
+    }, [])
 
   return (
     <>

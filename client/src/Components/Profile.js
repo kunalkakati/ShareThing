@@ -1,55 +1,51 @@
 import React, { useContext, useEffect } from 'react'
 import UserContext from '../Context/user/UserContext';
 import "./CSS/Profile.css";
-import { Link} from "react-router-dom";
-import { Button, createTheme, ThemeProvider } from '@mui/material';
-import UpgradeIcon from '@mui/icons-material/Upgrade';
-import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
-
-const theme = createTheme({
-    palette: {
-        primary: {
-          main: '#35D0BA',
-        //   main: '#0dcaf0',
-        },
-        secondary: {
-          main: '#EB455F',
-        },
-      },
-})
+import { useNavigate } from "react-router-dom";
+import { Button} from '@mui/material';
+import EmailIcon from '@mui/icons-material/Email';
+import SchoolIcon from '@mui/icons-material/School';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 function Profile() {
     const UserState = useContext(UserContext);
-    const { getSingleUser, singleUser } = UserState;
-    const { Username, email, department } = singleUser;
+    const { currentUser, getCurrentUser } = UserState;
+    const { Username, email, department } = currentUser;
 
     useEffect(() => {
-        getSingleUser();
+        getCurrentUser();
         // eslint-disable-next-line
     }, [])
+    const navigate = useNavigate();
+    const UserLogout = () => {
+        if (window.localStorage.getItem("Token")) {
+            window.localStorage.removeItem("Token");
+            navigate("/login", { replace: true });
+        }
+        else {
+            if (window.localStorage.getItem("AdminToken")) {
+                window.localStorage.removeItem("AdminToken");
+                navigate("/admin", { replace: true });
+            }
+        }
+    }
 
     return (
-        <div className='profile'>
-            <div class="card mb-3 pr-card" style={{maxWidth: "60vw"}}>
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="http://www.butte.edu/_resources/img/home/campus-center.jpg" class="img-fluid rounded-start" alt="..." />
-                    </div>
-                    <div class="col-md-8 card-col">
-                        <div class="card-body">
-                            <h1 class="card-title">{Username}</h1>
-                            <p class="card-title">Department of {department}</p>
-                            <p class="card-text">{email}</p>
-                            <ThemeProvider theme={theme}>
-                            <Link to='/update_password' ><Button color='primary' variant="contained" startIcon={<UpgradeIcon />}>Update password</Button></Link>
-                            <Link to='/delete20%account' className='mx-2' ><Button  color='error' variant="contained" startIcon={<DeleteSweepIcon />}>Delete account</Button></Link>
-                            </ThemeProvider>
-                        </div>
+        <>
+            <div className='profile'>
+                <div className="profile-content">
+                    <img src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Image.png" alt="profile avatar" />
+                    <div className="user-info">
+                        <h3 className='card-title'>{Username}</h3>
+                        <p className='card-subtitle'><EmailIcon /> {email}</p>
+                        <p className='card-text'><SchoolIcon /> Department of {department}</p>
                     </div>
                 </div>
+                <Button variant="outlined" color='warning' startIcon={<LogoutIcon />} onClick={UserLogout} >Logout</Button>
             </div>
-        </div>
+            <hr />
+        </>
     )
 }
 

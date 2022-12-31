@@ -23,7 +23,7 @@ function AllBlogs() {
                         </div>
                         <div class="description">
                             <h1>{item.title} </h1>
-                            <h2>{item.author}, <em> Department of {item.department}</em></h2>
+                            <h2>By {item.author} from {item.department} department</h2>
                             <p> Tags: {item.tags}</p>
                             <p> <LongText content={item.description} limit={200} /></p>
                             <p class="read-more">

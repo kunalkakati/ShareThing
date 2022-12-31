@@ -33,7 +33,7 @@ function AddBlogForm() {
         <>
             <form onSubmit={SubmitFrom} encType="multipart/form-data">
                 <div className='add-blog'>
-                    <h1>Enter your Blog</h1>
+                    <h1>Write your blog</h1>
                     <div className="mb-3">
                         <label htmlFor="title" className="lable form-label fs-2">Title</label>
                         <input type="text" className="inp form-control" id="title" name='title' value={blog.title} placeholder='example, Jenni kim' onChange={onChange} />

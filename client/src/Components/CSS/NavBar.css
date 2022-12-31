@@ -23,6 +23,10 @@
     margin: auto 0;
 }
 
+.logo:hover{
+    color: black;
+}
+
 .logo i{
     height: 30px;
     width: 40px;

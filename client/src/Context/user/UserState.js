@@ -4,8 +4,8 @@ import UserContext from './UserContext';
 
 
 const UserState = (props) => {
-  const [singleUser, setSingleUser] = useState({_id: '', Username: '', email: '', department: '' })
-  const getSingleUser = async () => {
+  const [currentUser, setCurrentUser] = useState({_id: '', Username: '', email: '', department: '' })
+  const getCurrentUser = async () => {
     const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
       method: 'GET',
       headers: {
@@ -14,7 +14,7 @@ const UserState = (props) => {
       },
     })
     const data = await response.json();
-    setSingleUser(data);
+    setCurrentUser(data);
   }
 
 
@@ -31,7 +31,7 @@ const UserState = (props) => {
 
 
   return (
-    <UserContext.Provider value={{ getSingleUser, singleUser, DeleteUser }}>
+    <UserContext.Provider value={{ currentUser, getCurrentUser, DeleteUser }}>
       {props.children}
     </UserContext.Provider>
   )

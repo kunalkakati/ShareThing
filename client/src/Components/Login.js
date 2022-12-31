@@ -52,7 +52,7 @@ function Login() {
                             </div>
                             <div className="input-box">
                                 <span className="details">Password</span>
-                                <input type="password" onChange={onChange} id="Password" name='Password' value={authStr.Password} placeholder="Enter your email" minLength={4} required />
+                                <input type="password" onChange={onChange} id="Password" name='Password' value={authStr.Password} placeholder="Enter your email" minLength={3} required />
                             </div>
                         </div>
                         <p>Dont have an account? Contact to your college.</p>

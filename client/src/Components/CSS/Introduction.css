@@ -48,8 +48,9 @@
 }
 
 .get-start:hover{
-    background-color: #0dd6b1;
-    color: black;
+    background-color: #EB455F;
+    color: #fff;
+    border-color: #EB455F;
 }
 
 .get-start:focus{

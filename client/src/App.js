@@ -17,7 +17,6 @@ import BlogsAdmin from './Components/Admin/BlogsAdmin';
 import ErrorPage from './Components/ErrorPage';
 import AdminLogin from './Components/Admin/Login';
 import AdminRegistration from './Components/Admin/Registration';
-import Profile from './Components/Profile';
 import UserState from './Context/user/UserState';
 import DeleteAccount from './Components/DeleteAccount';
 
@@ -37,10 +36,9 @@ function App() {
               <Route path='*' element={<ErrorPage type='404' typeString='Page not found' msg='path does not exist' path='/' />} />
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/profile" element={<Profile />} />
               {/* <Route path="/share-thing/intro" element={<Introduction />} /> */}
               <Route path="/compose" element={<AddBlogForm />} />
-              <Route path="/myblogs" element={<Blogs />} />
+              <Route path="/profile" element={<Blogs />} />
               <Route path="/login" element={<Login />} />
               <Route path="/delete20%account" element={<DeleteAccount />} />
               <Route path="/admin/dashboard/new_registration" element={<Register />} />

@@ -34,7 +34,7 @@ function Register() {
     const json = await responce.json();
     
     if(json.success){
-      window.localStorage.setItem('Token',json.Token);
+      // window.localStorage.setItem('Token',json.Token);
       navigate("/admin/dashboard", {replace: true});
     }else{
       alert("Register with wrong credential.place try again");

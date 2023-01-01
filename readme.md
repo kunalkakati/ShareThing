@@ -22,8 +22,11 @@ Before starting the project, you must install Nodejs or npm
 ```
 ## Screenshots
 ### Intro page
-![Screenshot (2)](https://user-images.githubusercontent.com/72245121/210079687-b5886e45-ea2d-4faa-b013-5f03f3613584.png)
+![Intro page](https://user-images.githubusercontent.com/72245121/210181651-1909d9b0-2acd-41b6-8ab5-90e2b2f970c1.png)
 ### Home page
-![Screenshot (14)](https://user-images.githubusercontent.com/72245121/210080106-49f0ab47-02ed-4cb6-94ef-bee9ea0b30f9.png)
+![admin blogs](https://user-images.githubusercontent.com/72245121/210181657-5f1c1b6d-10ea-42c2-9214-b7b8a67dc1f0.png)
 ### Admin page
-![Screenshot (10)](https://user-images.githubusercontent.com/72245121/210080324-0076aba8-9af1-46d9-b594-2cf1f5b02246.png)
+![dashboard](https://user-images.githubusercontent.com/72245121/210181665-0cd3f20b-21e7-47fb-85b0-bcd8350250bd.png)
+### About ShareThing
+![about page](https://user-images.githubusercontent.com/72245121/210181672-c1e1fa50-f97c-43c8-9068-628c32dae885.png)
+

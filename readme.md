@@ -21,12 +21,12 @@ Before starting the project, you must install Nodejs or npm
 ...\sharething\client> npm start
 ```
 ## Screenshots
-### Intro page
+### - Intro page
 ![Intro page](https://user-images.githubusercontent.com/72245121/210181651-1909d9b0-2acd-41b6-8ab5-90e2b2f970c1.png)
-### Home page
-![admin blogs](https://user-images.githubusercontent.com/72245121/210181657-5f1c1b6d-10ea-42c2-9214-b7b8a67dc1f0.png)
-### Admin page
+### - Home page
+![home page](https://user-images.githubusercontent.com/72245121/210181725-71b78161-9d87-4d6b-aa29-5bca846b4263.png)
+### - Admin page
 ![dashboard](https://user-images.githubusercontent.com/72245121/210181665-0cd3f20b-21e7-47fb-85b0-bcd8350250bd.png)
-### About ShareThing
+### - About ShareThing
 ![about page](https://user-images.githubusercontent.com/72245121/210181672-c1e1fa50-f97c-43c8-9068-628c32dae885.png)
 

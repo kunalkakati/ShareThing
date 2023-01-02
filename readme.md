@@ -16,8 +16,10 @@ To run this project, you will need to add the following environment variables to
 
 Before starting the project, you must install Nodejs or npm 
 ```powershell
+...\sharething> npm install
 ...\sharething> node app.js
 ...\sharething> cd client
+...\sharething\client> npm install
 ...\sharething\client> npm start
 ```
 ## Demo

@@ -36,11 +36,11 @@ function AddBlogForm() {
                     <h1>Write your blog</h1>
                     <div className="mb-3">
                         <label htmlFor="title" className="lable form-label fs-2">Title</label>
-                        <input type="text" className="inp form-control" id="title" name='title' value={blog.title} placeholder='example, Jenni kim' onChange={onChange} />
+                        <input type="text" className="inp form-control" id="title" name='title' value={blog.title} placeholder='Your blog title here..' onChange={onChange} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="lable form-label fs-2">Description</label>
-                        <textarea className="inp form-control" id="description" name='description' value={blog.description} rows="3" onChange={onChange} placeholder='Description much be greater then 50 charecters'></textarea>
+                        <textarea className="inp form-control" id="description" name='description' value={blog.description} rows="3" onChange={onChange} placeholder='Description must contain at least 50 characters'></textarea>
                     </div>
 
                     <div className="mb-3">

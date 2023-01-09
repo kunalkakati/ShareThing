@@ -25,7 +25,11 @@ Before starting the project, you must install Nodejs or npm
 ## Demo
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b71865d9-c48a-4e41-bf65-44cbf981184c/deploy-status)](https://www.netlify.com/) <br/>
 [Click here for demo](https://sharething.netlify.app/)
- * Note: Due to the fact that it's designed for college students, you can't just register yourself. For access to this website, you may receive a password or email from the college administration. For now use ```example@gmail.com``` as email and ```example123``` as password. 
+or Scan here
+<div>
+<img src="https://user-images.githubusercontent.com/72245121/211289808-bfdf93f0-d9bf-4192-b321-b4e5eef50fae.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="150" height="150" />
+</div>
+* Note: Due to the fact that it's designed for college students, you can't just register yourself. For access to this website, you may receive a password or email from the college administration. For now use ```example@gmail.com``` as email and ```example123``` as password.
 
 
  

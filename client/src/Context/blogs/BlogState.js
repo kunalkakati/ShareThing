@@ -2,7 +2,7 @@ import { useState } from "react";
 import BlogContext from "./BlogContext";
 
 const Blogstate = (props) => {
-  const host = "http://localhost:5000";
+  // const host = "http://localhost:5000";
 
   const [Blogs, setBlogs] = useState([{
     "title": '',
@@ -16,7 +16,7 @@ const Blogstate = (props) => {
   //! get all Blogs
   const getBlogs = async () => {
     //Fatch APi
-    const response = await fetch(`${host}/api/blog/fatch_all_blogs`, {
+    const response = await fetch(`${process.env.REACT_APP_HOST}/api/blog/fatch_all_blogs`, {
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const Blogstate = (props) => {
   }
 
   const getAllBlogs = async ()=>{
-    const responce = await fetch(`${host}/api/blog/all_blog`, {
+    const responce = await fetch(`${process.env.REACT_APP_HOST}/api/blog/all_blog`, {
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ const Blogstate = (props) => {
     data.append('description',description);
     data.append('tags',tags);
     data.append('file',file);
-    const responce = await fetch(`${host}/api/blog/add_blogs`, {
+    const responce = await fetch(`${process.env.REACT_APP_HOST}/api/blog/add_blogs`, {
       method: 'POST',
       headers: {
         // 'Content-Type': 'multipart/form-data;',
@@ -65,7 +65,7 @@ const Blogstate = (props) => {
   //!update a blog
   const updateBlog = async(id,title,description,tags) => {
     
-    const response = await fetch(`${host}/api/blog/update_blog/${id}`, {
+    const response = await fetch(`${process.env.REACT_APP_HOST}/api/blog/update_blog/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const Blogstate = (props) => {
 
   //! delete a blog
   const deleteBlog = async (id) => {
-    const response = await fetch(`${host}/api/blog/delete_blog/${id}`, {
+    const response = await fetch(`${process.env.REACT_APP_HOST}/api/blog/delete_blog/${id}`, {
       method: 'DELETE', 
       headers: {
         'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const Blogstate = (props) => {
   }
 
   const AdminDelete = async (id) => {
-    const response = await fetch(`${host}/api/blog/delete/${id}`, {
+    const response = await fetch(`${process.env.REACT_APP_HOST}/api/blog/delete/${id}`, {
       method: 'DELETE', 
       headers: {
         'Content-Type': 'application/json',

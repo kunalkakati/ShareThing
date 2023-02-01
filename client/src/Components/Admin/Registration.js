@@ -28,7 +28,7 @@ function Register() {
   const ResisterThisUser = async(e) => {
     e.preventDefault();
     const {Username,Password,email} = userData;
-    const responce = await fetch('http://localhost:5000/api/admin/create', {
+    const responce = await fetch(`${process.env.REACT_APP_HOST}/api/admin/create`, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',

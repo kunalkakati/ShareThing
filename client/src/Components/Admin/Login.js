@@ -28,7 +28,7 @@ function Login() {
         // console.log(authStr);
         setProgress(true);
         const { email, Password,collage_id } = authStr;
-        const response = await fetch(`http://localhost:3000/api/admin/login`, {
+        const response = await fetch(`${process.env.REACT_APP_HOST}/api/admin/login`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

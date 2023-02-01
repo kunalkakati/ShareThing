@@ -1,93 +1,63 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import BlogItem from './BlogItem';
+import React, { useContext, useEffect, useState } from 'react';
 import BlogContext from '../Context/blogs/BlogContext';
-import ErrorPage from './ErrorPage';
-import AlertContex from '../Context/blogs/AlertContext';
-import { Button } from '@mui/material';
-import Profile from './Profile';
+import LongText from './LongText';
+import "./CSS/BlogPage.css";
+import Progress from './Progress';
 
 
 
 function Blogs() {
     const blogState = useContext(BlogContext);
-    const alertState = useContext(AlertContex);
-    // eslint-disable-next-line
-    const { Blogs, getBlogs, updateBlog } = blogState;
-    const { giveAlert } = alertState;
+    const { Blogs, getAllBlogs } = blogState;
+    const [progress, setProgress] = useState(false);
     useEffect(() => {
+        setProgress(true);
+        getAllBlogs();
+        setProgress(false);
         // eslint-disable-next-line
-        console.log(window.localStorage.getItem('Token'));
-        if (window.localStorage.getItem('Token')) {
-            getBlogs();
-        }
-        // eslint-disable-next-line
-    }, []);
-
-    const ref = useRef(null);
-    const refClose = useRef(null);
-    const [blog, setBlog] = useState({ _id: '', e_title: '', e_description: '', e_tags: '' });
-
-    const EditNote = () => {
-        refClose.current.click();
-        updateBlog(blog._id, blog.e_title, blog.e_description, blog.e_tags) && giveAlert('success', 'Successfully Updated.');
-    }
-
-    const onChange = (e) => {
-        setBlog({ ...blog, [e.target.name]: e.target.value });
-    }
-
-    const OpenModal = (crrent_note) => {
-        ref.current.click();
-        setBlog({ _id: crrent_note._id, e_title: crrent_note.title, e_description: crrent_note.description, e_tags: crrent_note.tags });
-    }
+    }, [])
 
     return (
         <>
-            {window.localStorage.getItem('Token') ? <>
-                <Profile />
-                <div className='row my-3'>
-                    {/* <h4 className="my3 ">Blogs: </h4> */}
-                    {/* Update modal */}
-                    <button type="button" ref={ref} style={{ display: 'none' }} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch
-                    </button>
-                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Update: </h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <div className="mb-3">
-                                        <label htmlFor="e_title" className="form-label fs-3">Title</label>
-                                        <input type="text" value={blog.e_title} className="form-control" id="e_title" name='e_title' onChange={onChange} />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="e_description" className="form-label fs-3">Desription</label>
-                                        <textarea className="form-control" value={blog.e_description} id="e_description" name='e_description' rows="3" onChange={onChange}></textarea>
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="e_tags" className="form-label fs-3">Tags</label>
-                                        <input type="text" value={blog.e_tags} className="form-control" id="e_tags" name='e_tags' onChange={onChange} />
-                                    </div>
-                                </div>
-                                <div className="modal-footer">
-                                    <Button type="button" variant="outlined" color='error' ref={refClose} className="mx-3" data-bs-dismiss="modal">Close</Button>
-                                    <Button type="button" variant="contained" color='success' disabled={blog.e_description.length < 3 ? true : false} onClick={EditNote} className="">Save changes</Button>
-                                </div>
-                            </div>
+        <Progress state={progress} />
+        <div >
+            {Blogs.slice(0).reverse().map((item, index) => {
+                let date = new Date(item.date);
+                return (
+                    <div className="blog-card" key={index}>
+                        <div className="meta">
+                            <div className="photo" style={{"backgroundImage": `url(${item.imageUrl})`}}></div>
+                        </div>
+                        <div className="description">
+                            <h1>{item.title} </h1>
+                            <h2>By {item.author} from {item.department} department</h2>
+                            <p> Tags: {item.tags}</p>
+                            <p><LongText content={item.description} limit={200} /></p>
+                            <p className="read-more">
+                                {date.toDateString()}
+                            </p>
                         </div>
                     </div>
-                    {Blogs.slice(0).reverse().map((item, index) => {
-                        return <BlogItem key={index} blog={item} OpenModal={OpenModal} />;
-                    })}
-                </div>
-            </> :
-                <ErrorPage type='401' typeString="Unauthorized" msg="Plase login first" path="/login" />
-            }
+                )
+            })}
+        </div>
         </>
     )
 }
 
 export default Blogs
+
+
+// {/* // return (<div key={index} className="card my-3">
+// //                     <div className="card-header">
+// //                         {/* <h5 className="card-subtitle mb-2 text-muted">{date.toLocaleDateString()}</h5> */}
+// {/* //                         <h5 className="card-title">{item.title}</h5>
+// //                         <img src={item.imageUrl} alt="kun" />
+// //                         <p className="card-text"><em>Written by </em>{item.author} <p className="card-text"><em>Department of {item.department} </em></p></p>
+
+// //                     </div> */}
+// {/* //                     <div className="card-body">
+// //                         <p className="card-text"><LongText content={item.description} limit={300} /></p>
+// //                         <p className="card-text"><em>Tags: </em>{item.tags} <br /> <em>Date: </em>{date.toLocaleDateString()}</p>
+// //                     </div>
+// //                 </div>) */} 

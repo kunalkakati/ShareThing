@@ -1,0 +1,53 @@
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.menu{
+    width: 120px;
+    /* height: 140px; */
+    max-height: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: absolute;
+    right: 47px;
+    top: 53px;
+    z-index: 5;
+    background: #fff;
+    padding: 10px;
+    display: none;
+    border-radius: 5px;
+}
+/* floting menu content */
+.f-nav-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.f-nav-list{
+    list-style: none;
+    margin: 0 10px 0 -27px;
+}
+.f-singin-singup{
+    margin-top: 10px;
+}
+
+
+
+.close{
+    display: none;
+}
+
+.open{
+    display: block;
+}
+
+@media screen and (max-width: 850px){
+    .hamburger{
+        display: block;
+    }
+}
+@media screen and (min-width: 850px){
+    .menu{
+        display: none;
+    }
+}

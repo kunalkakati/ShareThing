@@ -8,23 +8,63 @@
     justify-content: space-around;
     min-height: 100px;
     align-items: center;
-    /* margin-top: 50px;
-    margin-bottom: 50px; */
     margin: 50px 0;
+    position: relative;
 }
 
+
+
 .db-destination{
-    padding: 30px 100px;
+    /* padding: 30px 100px; */
+    padding: 3% 3%;
+    min-width: 30%;
     background-color: #6F38C5;
     color: aliceblue;
     font-size: 1rem;
     font-weight: 500;
     border-radius: 4px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1000px){
+    .db-destination{
+        font-size: .7rem;
+    }
 }
 
 .db-destination:hover{
     background-color: #6e38c5cb;
     color: white;
-    
+}
 
+.phone-lebel{
+    display: none;
+}
+
+@media screen and (max-width: 800px){
+    .db{
+        margin: 0 10px;
+    }
+    .db-container{
+        flex-direction: column;
+        height: 80vw;
+        margin: 20px 0;
+    }
+
+    .db-destination{
+        width: 200px;
+        margin-top: 20px;
+        /* padding: 20px 50px; */
+        padding: 20px 20px;
+        font-size: .7rem;
+        text-align: center;
+    }
+
+    .db-all-users{
+        display: none;
+    }
+    .phone-lebel{
+        display: inline;
+
+    }
 }

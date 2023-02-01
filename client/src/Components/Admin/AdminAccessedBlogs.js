@@ -6,7 +6,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 
 
-function AllBlogs() {
+function AdminAccessedBlogs() {
   const blogState = useContext(BlogContext);
   const { Blogs, getAllBlogs, AdminDelete } = blogState;
   useEffect(() => {
@@ -18,28 +18,27 @@ function AllBlogs() {
     <div>
       {Blogs.slice(0).reverse().map((item, index) => {
         return (
-          
-        <div class="blog-card">
-                <div class="meta">
-                    <div class="photo" style={{ "background-image": `url(${item.imageUrl})` }}></div>
-                </div>
-                <div class="description">
-                    <h1>{item.title} </h1>
-                    <h2>{item.author}, <em> Department of {item.department}</em></h2>
-                    <p> <LongText content={item.description} limit={200} /></p>
-                    <p>{new Date(item.date).toDateString()}</p>
-                    <p class="read-more">
-                        <Button variant="contained" color='error' startIcon={<ClearIcon />} className="" onClick={() => { AdminDelete(item._id) }}>Delete</Button>
-                    </p>
-                </div>
+          <div className="blog-card" key={index}>
+            <div className="meta">
+              <div className="photo" style={{ "background-image": `url(${item.imageUrl})` }}></div>
             </div>
+            <div className="description">
+              <h1>{item.title} </h1>
+              <h2>{item.author}, <em> Department of {item.department}</em></h2>
+              <p> <LongText content={item.description} limit={200} /></p>
+              <p>{new Date(item.date).toDateString()}</p>
+              <p className="read-more">
+                <Button variant="contained" color='error' startIcon={<ClearIcon />} className="" onClick={() => { AdminDelete(item._id) }}>Delete</Button>
+              </p>
+            </div>
+          </div>
         )
       })}
     </div>
   )
 }
 
-export default AllBlogs
+export default AdminAccessedBlogs
 
 //  {/* <div key={index} className="card my-3">
 //           <div className="card-header">

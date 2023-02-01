@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import UserContext from './UserContext';
 
-
+const host = `http://localhost:5000`;
 
 const UserState = (props) => {
   const [currentUser, setCurrentUser] = useState({_id: '', Username: '', email: '', department: '' })
-  const getCurrentUser = async () => {
-    const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
+  const getCurrentUserDetails = async () => {
+    const response = await fetch(`${host}/api/auth/getuser`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const UserState = (props) => {
 
 
   const DeleteUser = async (id) => {
-    const response = await fetch(`http://localhost:5000/api/auth/delete/user/${id}`, {
+    const response = await fetch(`${host}/api/auth/delete/user/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const UserState = (props) => {
 
 
   return (
-    <UserContext.Provider value={{ currentUser, getCurrentUser, DeleteUser }}>
+    <UserContext.Provider value={{ currentUser, getCurrentUserDetails, DeleteUser }}>
       {props.children}
     </UserContext.Provider>
   )

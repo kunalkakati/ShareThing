@@ -36,7 +36,7 @@ function AddBlogForm() {
                     <h1>Write your blog</h1>
                     <div className="mb-3">
                         <label htmlFor="title" className="lable form-label fs-2">Title</label>
-                        <input type="text" className="inp form-control" id="title" name='title' value={blog.title} placeholder='Your blog title here..' onChange={onChange} />
+                        <input type="text" className="inp form-control" id="title" name='title' value={blog.title} placeholder='Your blog title.' onChange={onChange} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="lable form-label fs-2">Description</label>

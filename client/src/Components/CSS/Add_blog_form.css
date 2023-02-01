@@ -4,6 +4,12 @@
 
 }
 
+@media screen and (max-width: 800px){
+    .add-blog{
+        width: 70vw;
+    }
+}
+
 .add-blog > h1{
     text-align: center;
     margin: 35px 0;

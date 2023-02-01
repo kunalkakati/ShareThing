@@ -7,7 +7,7 @@ const Blogstate = (props) => {
   const [Blogs, setBlogs] = useState([{
     "title": '',
     "description": '',
-    "tags": '',
+    "tags": '',  
     "imageUrl": ''
   }]);
 

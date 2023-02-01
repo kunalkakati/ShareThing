@@ -12,6 +12,7 @@ function Introduction() {
                     <h2> With your friends.</h2>
                     <p>ShareThing is a blogging platform for college students. Where students can share their stories, poetries, notification about latest events, etc.</p>
                     <Link to="/login" className='get-start'>Get started</Link>
+                    {/* <Link to="/admin" className='get-start mx-3'>For admin</Link> */}
                 </div>
                 <div className="image">
                     <img src={Logo} alt="" />

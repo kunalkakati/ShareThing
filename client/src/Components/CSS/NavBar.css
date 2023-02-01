@@ -16,6 +16,17 @@
     align-items: center;
 }
 
+@media screen and (max-width: 800px){
+    .nevigation{
+        width: 80vw;
+        margin:23px auto 50px auto;
+    }
+
+    .logo{
+        font-size: 1.2rem;
+    }
+}
+
 .logo{
     font-weight: 600;
     font-size: 1.5rem;
@@ -119,52 +130,8 @@
 }
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-@media screen and (max-width: 822px) {
-   .nevigation{
-    flex-direction: column;
-   }
-   .singin,.singup{
-    padding: 5px 10px;
-   }
+@media screen and (max-width: 800px) {
    .nav-btn{
-    width: 100vw;
+    display: none;
    }
-   .nav-list li{
-    /* display: inline; */
-    padding-left: 40px;
-}
-}
-@media screen and (max-width: 330px){
-    .nevigation{
-        width: 100vw;
-    }
-    .nav-btn{
-        flex-direction: column;
-        width: 100vw;
-        }
-    .nav-list{
-        justify-content: space-between;
-        width: 100vw;
-        margin: 10px 0;
-        flex-direction: column;
-    }
-    .nav-list li{
-        /* display: inline; */
-        padding: 10px 0px;
-        width: 30%;
-    }   
-    .singin-singup > form{
-        display: flex;
-        flex-direction: column;
-        width: 100vw;
-        height: 40vw;
-        /* align-content: space-between; */
-        /* align-self: center; */
-    }
-    .singin,.singup{
-        width: 30%;
-        margin-top: 10px;
-        align-self: center;
-    }
-   
 }

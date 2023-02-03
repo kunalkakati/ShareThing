@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from 'react'
 import UserContext from '../Context/user/UserContext';
 import "./CSS/Profile.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import SchoolIcon from '@mui/icons-material/School';
 import LogoutIcon from '@mui/icons-material/Logout';
+import LockResetIcon from '@mui/icons-material/LockReset';
 import ErrorPage from './ErrorPage';
 import UserBlogs from './UserBlogs';
 
@@ -39,7 +40,10 @@ function Profile() {
                                 <p className='card-text'><SchoolIcon /> Department of {department}</p>
                             </div>
                         </div>
-                        <Button variant="outlined" color='warning' startIcon={<LogoutIcon />} onClick={UserLogout} >Logout</Button>
+                        <div>
+                        <Link to='/user/update'> <Button className='mx-3' variant="contained" color='warning' startIcon={<LockResetIcon />} >Update Password</Button></Link>
+                        <Button variant="outlined" color='error' startIcon={<LogoutIcon />} onClick={UserLogout} >Logout</Button>
+                        </div>
                     </div>
                     <hr />
                     <UserBlogs />

@@ -36,11 +36,11 @@ function AddBlogForm() {
                     <h1>Write your blog</h1>
                     <div className="mb-3">
                         <label htmlFor="title" className="lable form-label fs-2">Title</label>
-                        <input type="text" className="inp form-control" id="title" name='title' value={blog.title} placeholder='Your blog title.' onChange={onChange} />
+                        <input type="text" className="inp form-control" id="title" name='title' value={blog.title} placeholder='Your blog title.' onChange={onChange} autoComplete="on" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="lable form-label fs-2">Description</label>
-                        <textarea className="inp form-control" id="description" name='description' value={blog.description} rows="3" onChange={onChange} placeholder='Description must contain at least 50 characters'></textarea>
+                        <textarea className="inp form-control" id="description" name='description' value={blog.description} rows="3" onChange={onChange} placeholder='Description must contain at least 30 characters'></textarea>
                     </div>
 
                     <div className="mb-3">
@@ -50,10 +50,10 @@ function AddBlogForm() {
 
                     <div className="mb-3">
                         <label htmlFor="tags" className="lable form-label fs-2">Tags</label>
-                        <input type="text" className="inp form-control" id="tags" name='tags' value={blog.tags} placeholder='example fun, knowlage..' onChange={onChange} />
+                        <input type="text" className="inp form-control" id="tags" name='tags' value={blog.tags} placeholder='example fun, knowlage..' onChange={onChange} autoComplete="on" />
                     </div>
                     <div className="from-button">
-                        <Button type="submit" startIcon={<FileUploadIcon />} variant="contained" color='success' disabled={blog.description.length < 50 ? true : false}>Submit</Button>
+                        <Button type="submit" startIcon={<FileUploadIcon />} variant="contained" color='success' disabled={blog.description.length < 30 ? true : false}>Submit</Button>
                     </div>
                 </div>
             </form>

@@ -10,7 +10,6 @@ import Register from './Components/Register';
 import { useContext } from 'react';
 import AlertContex from './Context/blogs/AlertContext';
 import AddBlogForm from './Components/AddBlogForm';
-// import Blogs from './Components/UserBlogs';
 import AdminDashboard from './Components/Admin/Dashboard';
 import BlogsAdmin from './Components/Admin/AdminAccessedBlogs';
 import ErrorPage from './Components/ErrorPage';
@@ -19,6 +18,7 @@ import AdminRegistration from './Components/Admin/Registration';
 import UserState from './Context/user/UserState';
 import DeleteAccount from './Components/DeleteAccount';
 import Profile from './Components/Profile';
+import UpdatePassword from './Components/UpdatePassword';
 
 
 
@@ -40,6 +40,7 @@ function App() {
               {/* <Route path="/share-thing/intro" element={<Introduction />} /> */}
               <Route path="/compose" element={<AddBlogForm />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/user/update" element={<UpdatePassword />} />
               <Route path="/login" element={<Login />} />
               <Route path="/delete20%account" element={<DeleteAccount />} />
               <Route path="/admin/dashboard/new_registration" element={<Register />} />

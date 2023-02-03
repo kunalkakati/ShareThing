@@ -1,7 +1,8 @@
 import React, { useContext} from 'react'
 import AlertContex from '../../Context/blogs/AlertContext';
 import UserContext from '../../Context/user/UserContext'
-import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+// import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+import { Chip } from '@mui/material';
 
 
 
@@ -16,7 +17,7 @@ function Users({ user,index }) {
                 <td>{user.Username}</td>
                 <td>{user.email}</td>
                 <td>{user.department}</td>
-                <td><button onClick={() =>{DeleteUser(user._id) && AlertState.giveAlert('success',"Successfully deleted.")}} style={{'border': 'none', 'background': 'none'}} ><PersonRemoveIcon /></button></td>
+                <td><Chip label="remove" variant="outlined" onDelete={() =>{DeleteUser(user._id) && AlertState.giveAlert('success',"Successfully deleted.")}} /></td>
             </tr>
     )
 }

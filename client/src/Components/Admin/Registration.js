@@ -71,7 +71,7 @@ function Register() {
                 <div className="input-box">
                   <span className="details"> Reenter Password</span>
                   <input type="password" onChange={CheckPass} id="Password-1" name='Password'  placeholder="Enter your password again" required />
-                  {userData.Password === '' ? '' : PasswordState ? '*Password not match' : '*Password match.'}
+                  {userData.Password === '' ? '' : PasswordState ? <span style={{color: 'red'}}>*Password not match</span> : <span style={{color: 'green'}}>*Password match</span>}
                 </div>
               </div>
                 {/* <p>Already have account? <Link className="nav-link" to="/login" role="button"><i style={{color: "blue"}}>Login here </i></Link></p> */}

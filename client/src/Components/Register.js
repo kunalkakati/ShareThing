@@ -54,19 +54,19 @@ function Register() {
                 </div>
                 <div className="input-box">
                   <span className="details">Email</span>
-                  <input type="text" onChange={UserInputData} id="email" name='email'  placeholder="Enter your email" minLength={3} required />
+                  <input type="text" onChange={UserInputData} id="email" name='email'  placeholder="Enter your email" minLength={3} autoComplete="on" required />
                 </div>
                 <div className="input-box">
                   <span className="details">department</span>
-                  <input type="text" onChange={UserInputData} id="department" name='department'  placeholder="Enter your Department" minLength={3} required />
+                  <input type="text" onChange={UserInputData} id="department" name='department'  placeholder="Enter your Department" minLength={3} autoComplete="on" required />
                 </div>
                 <div className="input-box">
                   <span className="details">Password</span>
-                  <input type="password" onChange={UserInputData} id="Password" name='Password'  placeholder="Enter your password" required />
+                  <input type="password" onChange={UserInputData} id="Password" name='Password'  placeholder="Enter your password" required autoComplete="on" />
                 </div>
                 <div className="input-box">
                   <span className="details"> Reenter Password</span>
-                  <input type="password" onChange={CheckPass} id="Password-1" name='Password'  placeholder="Enter your password again" required />
+                  <input type="password" onChange={CheckPass} id="Password-1" name='Password'  placeholder="Enter your password again" autoComplete="on" required />
                   {userData.Password === '' ? '' : PasswordState ? '*Password not match' : '*Password match.'}
                 </div>
               </div>

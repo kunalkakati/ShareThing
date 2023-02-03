@@ -19,7 +19,7 @@ function About() {
       <div className='footer'>
         <div className='footer-container'>
           <h4>ShareThing</h4>
-          <p>Sharething.io</p>
+          <a href='https://sharething.netlify.app' target='_blank' rel="noreferrer" className='host_link'>Sharething.netlify.app</a>
         </div>
       </div>
     </div>

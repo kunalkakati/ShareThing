@@ -56,8 +56,11 @@ router.post("/add_blogs", FatchUser ,upload.single("file"), [body('description',
         // JS destructuring
         const { title, description, tags } = req.body;
         let user = await User.findOne({_id: req.user.id});
-        if (req.file === undefined) return res.send("you must select a file.");
-        const imgUrl = `http://localhost:5000/api/blog/image/${req.file.filename}`;
+        // if (req.file === undefined) return res.json({'error': "you must select a file."});
+        let imgUrl = 'https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png';
+        if(req.file !== undefined){
+            imgUrl = `http://localhost:5000/api/blog/image/${req.file.filename}`;
+        }
         // save to database[title means - title: title (if both name are same)].
         const note = new Blogs({
             user: req.user.id,
@@ -69,7 +72,7 @@ router.post("/add_blogs", FatchUser ,upload.single("file"), [body('description',
         const savedBlog = await note.save();
         res.json(savedBlog);
     } catch (error) {
-        console.log("Problem occured on note routes(/add_notes)" + error.massage);
+        console.log("Problem occured on note routes(/add_blogs)" + error.massage);
         return res.sendStatus(404).send("Internel server error.")
     }
 

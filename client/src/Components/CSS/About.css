@@ -61,7 +61,15 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding: 15px 0 0 0;
+    padding: 15px 0 5px 0;
+}
+
+.host_link{
+    color: #fff;
+}
+
+.host_link:hover{
+    color: black;
 }
 
 .footer-container > h4, .footer-container > p {

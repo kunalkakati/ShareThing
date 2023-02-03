@@ -64,7 +64,7 @@ router.post("/login", [body('Password').exists(),body('email').isEmail()], async
     const user = await User.findOne({email});
     
     const ComparePasword = await bcrypt.compare(Password,user.Password);
-    console.log(ComparePasword);
+    // console.log(ComparePasword);
     
     if(!ComparePasword){return res.json({success, error: "place enter valid email or password"})};
 
@@ -108,6 +108,23 @@ router.get("/users", async (req, res) => {
   }
 
 });
+
+
+router.put("/user/update/:uid", async (req, res)=>{
+  try {
+    const salt = bcrypt.genSaltSync(10);
+    const HashPass = await bcrypt.hash(req.body.newPassword, salt);
+    const id = req.params.uid;
+    const currentUser = await User.findById(id);
+    const compare = await bcrypt.compare(req.body.oldPassword,currentUser.Password);
+    if(!compare){return res.json({'state': false})};
+    const users = await User.findByIdAndUpdate(id, {$set: {Password: HashPass}}, {new: true});
+    res.json(users !== null ? {'state': true} : {'state': false});
+} catch (error) {
+    console.log("Problem occured on routes(/user/email) " + error.massage);
+    return res.sendStatus(404).send("Internel server error.");
+}
+})
 
 // !Route-5 (Admin user delete)
 router.delete("/delete/user/:id", async (req, res) => {

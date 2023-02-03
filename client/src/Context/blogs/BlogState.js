@@ -57,7 +57,10 @@ const Blogstate = (props) => {
       // body: JSON.stringify({ title, description, tags }),file
     })
     let json = await responce.json();
-    
+    // console.log(json.error);
+    // if(json.error !== undefined){
+    //   return false;
+    // }
     setBlogs(Blogs.concat(json));
     return true;
   }

@@ -3,7 +3,8 @@ import UserContext from './UserContext';
 
 
 const UserState = (props) => {
-  const [currentUser, setCurrentUser] = useState({_id: '', Username: '', email: '', department: '' })
+  const [currentUser, setCurrentUser] = useState({_id: '', Username: '', email: '', department: '' });
+
   const getCurrentUserDetails = async () => {
     const response = await fetch(`${process.env.REACT_APP_HOST}/api/auth/getuser`, {
       method: 'GET',
@@ -28,9 +29,23 @@ const UserState = (props) => {
     window.location.reload(false);
   }
 
+  
+  const UpdateUserPassword = async (uid,newPassword, oldPassword) =>{
+    const url = `${process.env.REACT_APP_HOST}/api/auth/user/update/${uid}`;
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({newPassword,oldPassword}),
+    })
+    const data = await response.json();
+    return data.state;
+  }
+
 
   return (
-    <UserContext.Provider value={{ currentUser, getCurrentUserDetails, DeleteUser }}>
+    <UserContext.Provider value={{ currentUser,UpdateUserPassword, getCurrentUserDetails, DeleteUser }}>
       {props.children}
     </UserContext.Provider>
   )
